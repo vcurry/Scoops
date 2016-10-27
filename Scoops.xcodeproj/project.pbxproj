@@ -7,14 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E32D069F1DC09A9D00CCFBE4 /* ReaderNewsTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32D069E1DC09A9D00CCFBE4 /* ReaderNewsTableTableViewController.swift */; };
 		E34CC9871DB903E100C1B737 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34CC9861DB903E100C1B737 /* AppDelegate.swift */; };
 		E34CC9891DB903E100C1B737 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34CC9881DB903E100C1B737 /* ViewController.swift */; };
 		E34CC98C1DB903E100C1B737 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E34CC98A1DB903E100C1B737 /* Main.storyboard */; };
 		E34CC98E1DB903E100C1B737 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E34CC98D1DB903E100C1B737 /* Assets.xcassets */; };
 		E34CC9911DB903E100C1B737 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E34CC98F1DB903E100C1B737 /* LaunchScreen.storyboard */; };
+		E34CC99A1DB904C300C1B737 /* AZSClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E34CC9991DB904C300C1B737 /* AZSClient.framework */; };
+		E34CC99C1DB904EC00C1B737 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E34CC99B1DB904EC00C1B737 /* libxml2.2.tbd */; };
+		E34CC9A01DB905D100C1B737 /* FakeClassAzure.m in Sources */ = {isa = PBXBuildFile; fileRef = E34CC99F1DB905D100C1B737 /* FakeClassAzure.m */; };
+		E39062761DBD04EE00EB9829 /* UserSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39062741DBD04EE00EB9829 /* UserSelectionViewController.swift */; };
+		E39062771DBD04EE00EB9829 /* UserSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E39062751DBD04EE00EB9829 /* UserSelectionViewController.xib */; };
+		E390627A1DBD08B300EB9829 /* NewsTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39062781DBD08B300EB9829 /* NewsTableTableViewController.swift */; };
+		E390627B1DBD08B300EB9829 /* NewsTableTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E39062791DBD08B300EB9829 /* NewsTableTableViewController.xib */; };
+		E390627D1DBD4A4B00EB9829 /* MicrosoftAzureMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E390627C1DBD4A4B00EB9829 /* MicrosoftAzureMobile.framework */; };
+		E390627F1DBD4B4C00EB9829 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E390627E1DBD4B4C00EB9829 /* WebKit.framework */; };
+		E39062831DBD575700EB9829 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39062811DBD575700EB9829 /* NewsDetailViewController.swift */; };
+		E39062841DBD575700EB9829 /* NewsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E39062821DBD575700EB9829 /* NewsDetailViewController.xib */; };
+		E39062861DBD5B1D00EB9829 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39062851DBD5B1D00EB9829 /* News.swift */; };
+		E39062881DBD611500EB9829 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39062871DBD611500EB9829 /* Author.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E32D069E1DC09A9D00CCFBE4 /* ReaderNewsTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderNewsTableTableViewController.swift; sourceTree = "<group>"; };
 		E34CC9831DB903E100C1B737 /* Scoops.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scoops.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E34CC9861DB903E100C1B737 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E34CC9881DB903E100C1B737 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +37,21 @@
 		E34CC98D1DB903E100C1B737 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E34CC9901DB903E100C1B737 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E34CC9921DB903E100C1B737 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E34CC9991DB904C300C1B737 /* AZSClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AZSClient.framework; sourceTree = "<group>"; };
+		E34CC99B1DB904EC00C1B737 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		E34CC99D1DB905D100C1B737 /* Scoops-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Scoops-Bridging-Header.h"; sourceTree = "<group>"; };
+		E34CC99E1DB905D100C1B737 /* FakeClassAzure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeClassAzure.h; sourceTree = "<group>"; };
+		E34CC99F1DB905D100C1B737 /* FakeClassAzure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeClassAzure.m; sourceTree = "<group>"; };
+		E39062741DBD04EE00EB9829 /* UserSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSelectionViewController.swift; sourceTree = "<group>"; };
+		E39062751DBD04EE00EB9829 /* UserSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserSelectionViewController.xib; sourceTree = "<group>"; };
+		E39062781DBD08B300EB9829 /* NewsTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableTableViewController.swift; sourceTree = "<group>"; };
+		E39062791DBD08B300EB9829 /* NewsTableTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableTableViewController.xib; sourceTree = "<group>"; };
+		E390627C1DBD4A4B00EB9829 /* MicrosoftAzureMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicrosoftAzureMobile.framework; sourceTree = "<group>"; };
+		E390627E1DBD4B4C00EB9829 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		E39062811DBD575700EB9829 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
+		E39062821DBD575700EB9829 /* NewsDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsDetailViewController.xib; sourceTree = "<group>"; };
+		E39062851DBD5B1D00EB9829 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		E39062871DBD611500EB9829 /* Author.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +59,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E390627F1DBD4B4C00EB9829 /* WebKit.framework in Frameworks */,
+				E34CC99C1DB904EC00C1B737 /* libxml2.2.tbd in Frameworks */,
+				E390627D1DBD4A4B00EB9829 /* MicrosoftAzureMobile.framework in Frameworks */,
+				E34CC99A1DB904C300C1B737 /* AZSClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,14 +88,47 @@
 		E34CC9851DB903E100C1B737 /* Scoops */ = {
 			isa = PBXGroup;
 			children = (
+				E34CC9981DB904AC00C1B737 /* Frameworks */,
 				E34CC9861DB903E100C1B737 /* AppDelegate.swift */,
+				E39062801DBD4B9900EB9829 /* Controllers */,
 				E34CC9881DB903E100C1B737 /* ViewController.swift */,
 				E34CC98A1DB903E100C1B737 /* Main.storyboard */,
 				E34CC98D1DB903E100C1B737 /* Assets.xcassets */,
 				E34CC98F1DB903E100C1B737 /* LaunchScreen.storyboard */,
 				E34CC9921DB903E100C1B737 /* Info.plist */,
+				E39062851DBD5B1D00EB9829 /* News.swift */,
+				E39062871DBD611500EB9829 /* Author.swift */,
 			);
 			path = Scoops;
+			sourceTree = "<group>";
+		};
+		E34CC9981DB904AC00C1B737 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E390627E1DBD4B4C00EB9829 /* WebKit.framework */,
+				E34CC99B1DB904EC00C1B737 /* libxml2.2.tbd */,
+				E390627C1DBD4A4B00EB9829 /* MicrosoftAzureMobile.framework */,
+				E34CC9991DB904C300C1B737 /* AZSClient.framework */,
+				E34CC99E1DB905D100C1B737 /* FakeClassAzure.h */,
+				E34CC99F1DB905D100C1B737 /* FakeClassAzure.m */,
+				E34CC99D1DB905D100C1B737 /* Scoops-Bridging-Header.h */,
+			);
+			name = Frameworks;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		E39062801DBD4B9900EB9829 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E39062781DBD08B300EB9829 /* NewsTableTableViewController.swift */,
+				E39062791DBD08B300EB9829 /* NewsTableTableViewController.xib */,
+				E39062741DBD04EE00EB9829 /* UserSelectionViewController.swift */,
+				E39062751DBD04EE00EB9829 /* UserSelectionViewController.xib */,
+				E39062811DBD575700EB9829 /* NewsDetailViewController.swift */,
+				E39062821DBD575700EB9829 /* NewsDetailViewController.xib */,
+				E32D069E1DC09A9D00CCFBE4 /* ReaderNewsTableTableViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,6 +164,7 @@
 					E34CC9821DB903E100C1B737 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 6ST72RTMK9;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -124,7 +192,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E39062841DBD575700EB9829 /* NewsDetailViewController.xib in Resources */,
+				E39062771DBD04EE00EB9829 /* UserSelectionViewController.xib in Resources */,
 				E34CC9911DB903E100C1B737 /* LaunchScreen.storyboard in Resources */,
+				E390627B1DBD08B300EB9829 /* NewsTableTableViewController.xib in Resources */,
 				E34CC98E1DB903E100C1B737 /* Assets.xcassets in Resources */,
 				E34CC98C1DB903E100C1B737 /* Main.storyboard in Resources */,
 			);
@@ -137,7 +208,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E39062831DBD575700EB9829 /* NewsDetailViewController.swift in Sources */,
+				E39062761DBD04EE00EB9829 /* UserSelectionViewController.swift in Sources */,
+				E39062881DBD611500EB9829 /* Author.swift in Sources */,
+				E390627A1DBD08B300EB9829 /* NewsTableTableViewController.swift in Sources */,
 				E34CC9891DB903E100C1B737 /* ViewController.swift in Sources */,
+				E39062861DBD5B1D00EB9829 /* News.swift in Sources */,
+				E32D069F1DC09A9D00CCFBE4 /* ReaderNewsTableTableViewController.swift in Sources */,
+				E34CC9A01DB905D100C1B737 /* FakeClassAzure.m in Sources */,
 				E34CC9871DB903E100C1B737 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,11 +339,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 6ST72RTMK9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Scoops/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VCV.Scoops;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Scoops-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -274,11 +359,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 6ST72RTMK9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Scoops/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VCV.Scoops;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Scoops-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -302,6 +393,7 @@
 				E34CC9971DB903E100C1B737 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
