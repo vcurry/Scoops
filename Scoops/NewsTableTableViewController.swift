@@ -12,11 +12,10 @@ typealias AutorRecord = Dictionary<String, AnyObject>
 
 class NewsTableTableViewController: UITableViewController {
     
-    var client : MSClient = MSClient(applicationURL: URL(string: "http://boot3labsv.azurewebsites.net")!)
+    var client : MSClient = MSClient(applicationURL: URL(string: "https://boot3labsv.azurewebsites.net")!)
     var model : [Dictionary<String, AnyObject>]? = []
     
-    var blobClient: AZSCloudBlobClient?
-    var photoContainer: AZSCloudBlobContainer?
+    var userIdentity : [Dictionary<String, AnyObject>]? = []
     
     var author : Author
     
@@ -33,20 +32,18 @@ class NewsTableTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupAzureClient()
         if let _ = client.currentUser{
             readAllItemsInTable()
-             print(model?.count)
         } else {
             doLoginInFacebook()
         }
         
-        self.newContainer("Photos")
         addNewsButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         readAllItemsInTable()
+        
         tableView.reloadData()
     }
 
@@ -67,6 +64,7 @@ class NewsTableTableViewController: UITableViewController {
             
             if let _ = user {
                 self.readAllItemsInTable()
+                self.getUserIdentity()
             }
         }
     }
@@ -80,7 +78,7 @@ class NewsTableTableViewController: UITableViewController {
     // MARK: - Actions
     func addNews(){
         let news = News(author: author, title: "", text: "", photo: nil)
-        let newsDetailVC = NewsDetailViewController(author: author, news: news, container: photoContainer!)
+        let newsDetailVC = NewsDetailViewController(author: author, news: news)
         navigationController?.pushViewController(newsDetailVC, animated: true)
     }
     
@@ -125,100 +123,40 @@ class NewsTableTableViewController: UITableViewController {
                 print(error)
                 return
             }
-            
-            // refrescar la tabla
             self.readAllItemsInTable()
         }
     }
     
-    func setupAzureClient(){
-        do {
-            let credentials = AZSStorageCredentials(accountName: "labboot3storagev",
-                                                    accountKey: "6w7YXVXiqaxOmLCtptliUxpAjKUJHMn4N61HIl9zZBlVSNrLtkMsgSvXUAUqCYvjC8i8NE7kKzS1JAOXS41xtA==")
-            let account = try AZSCloudStorageAccount(credentials: credentials, useHttps: true)
-            
-            blobClient = account.getBlobClient()
-            
-            self.readAllContainers()
-            
-        } catch let error {
-            print(error)
-        }
-        
-    }
-
-    func readAllContainers()  {
-        photoContainer = (blobClient?.containerReference(fromName: "photos"))!
-//        blobClient?.listContainersSegmented(with: nil,
-//                                        prefix: nil,
-//                                        containerListingDetails: AZSContainerListingDetails.all,
-//                                        maxResults: -1,
-//                                        completionHandler: { (error, containersResults) in
-//                                            
-//                                            if let _ = error {
-//                                                print(error)
-//                                                return
-//                                            }
-//                                            
-//                                            if !self.photoModel.isEmpty {
-//                                                self.photoModel.removeAll()
-//                                            }
-//                                            
-//                                            
-//                                            for item in (containersResults?.results)! {
-//                                                print(item)
-//                                                self.photoModel.append((item as? AZSCloudBlobContainer)!)
-//                                            }
-//                                            
-//                                            DispatchQueue.main.async {
-//                                                self.tableView.reloadData()
-//                                            }
-//                                            
-//                                            
-//        })
-        
-    }
     
-    func newContainer(_ name: String) {
-        let blobContainer = blobClient?.containerReference(fromName: name.lowercased())
-        
-        blobContainer?.createContainerIfNotExists(with: AZSContainerPublicAccessType.container,
-                                                  requestOptions: nil,
-                                                  operationContext: nil,
-                                                  completionHandler: { (error, result) in
-                                                    
-                                                    if let _  = error {
-                                                        print(error)
-                                                        return
-                                                    }
-                                                    if result {
-                                                        print("Container creado")
-                                                        self.readAllContainers()
-                                                    } else {
-                                                        print("Ya existe el container")
-                                                    }
-                                                    
-        })
-    }
-    
-    func downloadBlobFromStorage(_ theBlob: AZSCloudBlockBlob) {
-        
-        theBlob.downloadToData { (error, data) in
+    // Download the news saved in the table
+    func getUserIdentity(){
+        client.invokeAPI("getUserIdentity", body: nil, httpMethod: "GET", parameters: nil, headers: nil) { (result, respose, error) in
+            
             
             if let _ = error {
                 print(error)
                 return
             }
             
-            if let _ = data {
-                var img = UIImage(data: data!)
-                print("Imagen ok")
+            if !((self.userIdentity!.isEmpty)) {
+                self.userIdentity?.removeAll()
             }
             
+            if let _ = result {
+                
+                let json = result as! [AutorRecord]
+                
+                for item in json {
+                    self.userIdentity?.append(item)
+                }
+                
+                DispatchQueue.main.async {
+                    
+                    print("User udentity conseguida")
+                }
+            }
         }
-        
     }
-
 
     
     // MARK: - Table view data source
@@ -261,20 +199,15 @@ class NewsTableTableViewController: UITableViewController {
         let cellId = "News"
         var cell = tableView.dequeueReusableCell(withIdentifier: cellId)
         
-     
+
         if cell == nil{
-            //El optional está vació: hay que crearla a pelo
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
         }
-   //     let item = model?[indexPath.row]
-        
-   //     cell?.textLabel?.text = item?["name"] as! String?
         
         if !(model?.isEmpty)! && indexPath.section == 0 {
             let item = model?[indexPath.row]
             cell?.textLabel?.text = item?["title"] as! String?
             cell?.detailTextLabel?.text = item?["author"] as! String?
-      //      cell?.imageView?.image = photoContainer?.blockBlobReference(fromName: (item?["image"] as! String?)!)
         }
 
         
@@ -288,24 +221,26 @@ class NewsTableTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
+            
             let item = model?[indexPath.row]
+            
             let news = News(author: author,
                             title: item?["title"] as! String,
                             text: item?["text"] as! String,
                             photo: nil)
             news.id = item?["id"] as! String
-            let newsDetailVC = NewsDetailViewController(author: author, news: news, container: photoContainer!)
+            news.blobId = item?["image"] as! String
+            if (item?["latitude"] as! Double) != 0.0 {
+                news.latitude = item?["latitude"] as! Double
+                news.longitude = item?["longitude"] as! Double
+            }
+            news.views = item?["views"] as! Int
+            let newsDetailVC = NewsDetailViewController(author: author, news: news)
             navigationController?.pushViewController(newsDetailVC, animated: true)
-//            print(item?["id"] as! String)
-//            for n in author.news {
-//                if n.id == item?["id"] as! String {
-//                    let newsDetailVC = NewsDetailViewController(author: author, news: n)
-//                    navigationController?.pushViewController(newsDetailVC, animated: true)
-//                }
-//            }
+
         } else {
             let news = author.news[indexPath.row]
-            let newsDetailVC = NewsDetailViewController(author: author, news: news, container: photoContainer!)
+            let newsDetailVC = NewsDetailViewController(author: author, news: news)
             navigationController?.pushViewController(newsDetailVC, animated: true)
         }
         

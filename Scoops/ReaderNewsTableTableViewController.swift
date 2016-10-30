@@ -12,20 +12,13 @@ import UIKit
 
 class ReaderNewsTableTableViewController: UITableViewController {
 
-    var client : MSClient = MSClient(applicationURL: URL(string: "http://boot3labsv.azurewebsites.net")!)
+    var client : MSClient = MSClient(applicationURL: URL(string: "https://boot3labsv.azurewebsites.net")!)
 
     var model : [Dictionary<String, AnyObject>]? = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let _ = client.currentUser{
-            readAllItemsInTable()
-            print(model?.count)
-        } else {
-            doLoginInFacebook()
-        }
-        
+        readAllItemsInTable()
 
     }
     
@@ -61,8 +54,6 @@ class ReaderNewsTableTableViewController: UITableViewController {
     
     func readAllItemsInTable(){
         client.invokeAPI("readAllRecords", body: nil, httpMethod: "GET", parameters: nil, headers: nil) { (result, respose, error) in
-            
-            print("Result \(result)")
             if let _ = error {
                 print(error)
                 return
@@ -113,12 +104,8 @@ class ReaderNewsTableTableViewController: UITableViewController {
         
         
         if cell == nil{
-            //El optional está vació: hay que crearla a pelo
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
         }
-        //     let item = model?[indexPath.row]
-        
-        //     cell?.textLabel?.text = item?["name"] as! String?
         
         if !(model?.isEmpty)! {
             let item = model?[indexPath.row]
@@ -130,15 +117,30 @@ class ReaderNewsTableTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = model?[indexPath.row]
+        var item = model?[indexPath.row]
         let author = Author(name: item?["author"] as! String)
         let news = News(author: author,
                         title: item?["title"] as! String,
                         text: item?["text"] as! String,
                         photo: nil)
         news.id = item?["id"] as! String
-    //    let newsDetailVC = NewsDetailViewController(author: author, news: news)
-      //  navigationController?.pushViewController(newsDetailVC, animated: true)
+        news.blobId = item?["image"] as! String
+        news.views = item?["views"] as! Int + 1
+        
+        let tableAz = client.table(withName: "Authors")
+        item!["views"] = news.views as AnyObject?
+        tableAz.update(item!, completion: { (result, error) in
+            if let _ = error {
+                print(error)
+                return
+            }
+            
+            print(result)
+            
+        })
+        
+        let newsDetailVC = ReaderNewsDetailViewController(news: news)
+        navigationController?.pushViewController(newsDetailVC, animated: true)
 
         
     }

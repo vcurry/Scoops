@@ -22,7 +22,7 @@ class UserSelectionViewController: UIViewController {
     }
     
     @IBAction func showAuthorInterface(_ sender: AnyObject) {
-        let author = Author(name: "Pedro")
+        let author = Author(name: "Verónica Cordobés")
         let newsVC = NewsTableTableViewController(author: author)
         navigationController?.pushViewController(newsVC, animated: true)
     }

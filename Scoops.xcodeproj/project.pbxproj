@@ -26,6 +26,8 @@
 		E39062841DBD575700EB9829 /* NewsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E39062821DBD575700EB9829 /* NewsDetailViewController.xib */; };
 		E39062861DBD5B1D00EB9829 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39062851DBD5B1D00EB9829 /* News.swift */; };
 		E39062881DBD611500EB9829 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39062871DBD611500EB9829 /* Author.swift */; };
+		E3A75FB41DC3F9F500136802 /* ReaderNewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A75FB21DC3F9F500136802 /* ReaderNewsDetailViewController.swift */; };
+		E3A75FB51DC3F9F500136802 /* ReaderNewsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3A75FB31DC3F9F500136802 /* ReaderNewsDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,9 @@
 		E39062821DBD575700EB9829 /* NewsDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsDetailViewController.xib; sourceTree = "<group>"; };
 		E39062851DBD5B1D00EB9829 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		E39062871DBD611500EB9829 /* Author.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		E3A75FB21DC3F9F500136802 /* ReaderNewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderNewsDetailViewController.swift; sourceTree = "<group>"; };
+		E3A75FB31DC3F9F500136802 /* ReaderNewsDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReaderNewsDetailViewController.xib; sourceTree = "<group>"; };
+		E3A75FB61DC4EAFB00136802 /* Scoops.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Scoops.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +93,7 @@
 		E34CC9851DB903E100C1B737 /* Scoops */ = {
 			isa = PBXGroup;
 			children = (
+				E3A75FB61DC4EAFB00136802 /* Scoops.entitlements */,
 				E34CC9981DB904AC00C1B737 /* Frameworks */,
 				E34CC9861DB903E100C1B737 /* AppDelegate.swift */,
 				E39062801DBD4B9900EB9829 /* Controllers */,
@@ -127,6 +133,8 @@
 				E39062811DBD575700EB9829 /* NewsDetailViewController.swift */,
 				E39062821DBD575700EB9829 /* NewsDetailViewController.xib */,
 				E32D069E1DC09A9D00CCFBE4 /* ReaderNewsTableTableViewController.swift */,
+				E3A75FB21DC3F9F500136802 /* ReaderNewsDetailViewController.swift */,
+				E3A75FB31DC3F9F500136802 /* ReaderNewsDetailViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -166,6 +174,11 @@
 						DevelopmentTeam = 6ST72RTMK9;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -194,6 +207,7 @@
 			files = (
 				E39062841DBD575700EB9829 /* NewsDetailViewController.xib in Resources */,
 				E39062771DBD04EE00EB9829 /* UserSelectionViewController.xib in Resources */,
+				E3A75FB51DC3F9F500136802 /* ReaderNewsDetailViewController.xib in Resources */,
 				E34CC9911DB903E100C1B737 /* LaunchScreen.storyboard in Resources */,
 				E390627B1DBD08B300EB9829 /* NewsTableTableViewController.xib in Resources */,
 				E34CC98E1DB903E100C1B737 /* Assets.xcassets in Resources */,
@@ -213,6 +227,7 @@
 				E39062881DBD611500EB9829 /* Author.swift in Sources */,
 				E390627A1DBD08B300EB9829 /* NewsTableTableViewController.swift in Sources */,
 				E34CC9891DB903E100C1B737 /* ViewController.swift in Sources */,
+				E3A75FB41DC3F9F500136802 /* ReaderNewsDetailViewController.swift in Sources */,
 				E39062861DBD5B1D00EB9829 /* News.swift in Sources */,
 				E32D069F1DC09A9D00CCFBE4 /* ReaderNewsTableTableViewController.swift in Sources */,
 				E34CC9A01DB905D100C1B737 /* FakeClassAzure.m in Sources */,
